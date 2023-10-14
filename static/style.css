@@ -1,0 +1,329 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+ background-color: #1b1b1e;
+ font-family: "Lato", sans-serif;
+}
+
+.img-fluid{
+	width: 140px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:#222225;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 70px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  height: 100%;
+  width: auto;
+  margin-left: auto; /* Same as the width of the sidenav */
+  margin-right: auto;
+}
+.sidenav img {
+  border-style: solid;
+  border-color: lightgreen;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.first h1 {
+ color:  #aa759f;
+ text-align:center;
+}
+
+.sidenav .inf{
+ color:#808080; 
+ text-align:center;
+}
+
+.btn-circle {
+  height: 45px;
+  width: 40px;
+  padding: 6px 0px;
+  border-radius: 50%;
+}
+
+.gallery img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px 0 rgba(99, 173, 118, 0.2), 0 6px 20px 0 rgba(99, 173, 118, 0.9);
+}
+
+.curinf {
+  padding: 20px;
+}
+
+.curinf p{
+  font-family:'Courier New';
+  color:green;
+  text-align: center;
+}
+
+.rsidebar{
+   height:100%;
+   position:fixed;
+   right:0px;
+   bottom:0px;
+   width: 300px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+}
+
+.desc {
+  padding: 15px;
+  font-size: 20px;
+  color:green;
+  text-align: center;
+}
+
+.footer {
+   position: absolute;
+   bottom:0;
+   width: 100%;
+}
+
+.footer p{
+	text-align:center;
+	color: #646464;
+}
+
+.footer a{
+	color: #aa759f;
+}
+
+.topnav .icon{
+	display:none;
+}
+
+.mySlides {display: none}
+.w3-animate-zoom img {vertical-align: middle;}
+
+/* Slideshow container */
+.mySlides {
+  position: relative;
+  margin: 50px 0px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  width: 50px;
+  padding: 10px 50px;
+  color: #aa759f;
+  font-size: 50px;
+  border-radius: 0 100px 100px 0;
+  user-select: none;
+  transition: 0.6s ease;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 270px;
+  border-radius: 100px 0 0 100px;
+}
+
+/* Position the "next button" to the right */
+.prev {
+  left: 200px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 20px;
+  padding: 40px 12px;
+  position: absolute;
+  top: 240px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 0px 280px;
+  position: absolute;
+  right:0;
+  bottom: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.main .about{
+  padding-top: 250px;
+  text-align: center;
+  font-size: 15px;
+ }
+ 
+.main .about h2 {
+  color: #4CAF50;
+  letter-spacing: 3px;
+}
+
+ .main .about a{
+	 color:  #aa759f;
+ }
+ 
+@media screen and (max-width: 1202px) {
+  .sidenav{
+	position:relative;
+	top:0;
+	width: 100%;
+  }
+  .rsidebar{
+	position:static;
+	top:40px;
+	bottom: 10px;
+	width: 100%;
+  }	
+  .footer {
+   position:relative;
+   bottom:0;
+   width: 100%;
+}
+  .first {font-size: 20px;}
+  .first h1{font-size: 25px;}
+  .fisrt .img-fluid{width: 95px;}
+  .topnav a {display: none;}
+  .topnav a.icon {
+	float: right;
+	display: block;
+  }
+  .numbertext {display:none;}
+  .next {
+	right: 100px;
+	}
+  .prev {
+	left: 80px;
+	}
+  .text {
+  font-size: 15px;
+  position: relative;
+  top: 20px;
+	}
+  }
+
+@media screen and (max-width: 1202px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+	position: absolute;
+	right: 0;
+	top: 0;
+  }
+  .topnav.responsive a {
+	float: none;
+	display: block;
+	text-align: left;
+	font-size: 15px;
+  }
+}  
+  
+  @media screen and (max-width: 700px) {
+
+  .sidenav{
+	position:relative;
+	top:0;
+	max-width: 100%;
+  }
+  .rsidebar{
+	position: static;
+	bottom: 20px;
+	max-width: 100%;
+  }	
+  .footer {  
+   position:relative;
+   bottom:0;
+   width: 100%;
+  }
+  .first {font-size: 15px;}
+  .first h1{font-size: 25px;}
+  .fisrt .img-fluid{width: 75px;}
+  .topnav a {display: none;}
+  .topnav a.icon {
+	float: right;
+	display: block;
+  }
+  
+  .prev, .next,.text {font-size: 20px}
+  .numbertext {display:none;}
+  .mySlides img{  margin-left: auto;
+	  margin-right: auto;
+	  width: 280px;}
+  .prev, .next {
+	  padding: 10px 20px;
+	  }
+   .next {
+	right: 30px;
+	}
+  .prev {
+	left: 30px;
+	}
+  .text {
+	  font-size: 10px;
+	  position: relative;
+	  top: 20px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+	position: absolute;
+	right: 0;
+	top: 0;
+  }
+  .topnav.responsive a {
+	float: none;
+	display: block;
+	text-align: left;
+	font-size: 15px;
+  } 
+}
+  
