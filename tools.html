@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<title>Tools</title>
+<style>
+
+h2 {
+  color: #4CAF50;
+  text-align: justify;
+  letter-spacing: 3px;
+  padding-left: 240px;
+  padding-top: 20px;
+}
+
+.tools li {
+padding-left: 240px;
+color: lightgreen;
+font-size: 15px;
+}
+
+li p{
+  padding-left: 20px;
+  color: white;
+  font-size: 15px;
+}
+@media screen and (max-width: 1202px) {
+	h2 {
+		padding-left: 0px;
+	}
+	.tools li, li p{
+		position: relative;
+		padding:0;
+		font-size: 20px;
+	}
+ }
+ @media screen and (max-width: 700px) {
+	h2 {
+		padding-left: 0px;
+	}
+	.tools li, li p{
+		position: relative;
+		padding:0;
+		font-size: 9px;
+	}
+ }
+</style>
+	</HEAD>
+	<BODY onload="startTime()">		
+			<div class="sidenav">
+				<div class="first">
+				<img class="img-fluid" src="src/alienaki.jfif" alt="Avatar"/>
+				<h1><b> Alienaki </h1>
+				<div class="inf">
+					<p class="font-weight-light">Developer | NetSec | CyberSec</p>
+				</div>
+				</div>
+				<div class="topnav" id="myTopnav">
+					<a href="index.html">Home <span class="sr-only">(current)</span></a>
+					<a href="tools.html">Tools</a>
+					<a href="vulnhub.html">Vulnhub</a>
+					<a href="about.html">About</a>	
+				    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					<i class="fa fa-bars"></i>
+					</a>
+				</div>
+			</div>	
+			
+			<div class="main">
+				<div class="tools">
+				<h2>Lazy tools</h2>
+				<br>
+				 <ul>
+				   <li>Nmap | Port scan<br>
+					 <p>nmap 127.0.0.1 -p 0-65535<br>
+					    nmap -A -O -sS 127.0.0.1</p> 
+				   </li>
+				   <br>
+				   <li>Gobuster | Dir scan<br><p>gobuster dir -k -u http://0.0.0.0 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x .php,.txt,.html</p></li>
+				   <br>
+				   <li>Hydra | Brute force<br>
+					 <p>hydra -l admin -P /usr/share/wordlists/rockyou.txt host.example.com http-post-form <br>
+					 "/index.php:username=^USER^&password=^PASS^&Login=Login:Login Failed"</p>
+				   </li>
+				   <br>
+				   <li>Nikto | Webapp analysis<br>
+					 <p>nikto -h 127.0.0.1 -Display V | grep 200</p>
+				   </li>
+				   <br>
+				   <li>Ncrack | SSH brute force<br>
+					 <p>ncrack -p 22 --user alien -P /usr/share/wordlists/rockyou.txt 127.0.0.1</p>
+				   </li>
+				   <br>
+				   <li>ffuf | Subdomain scan<br>
+					 <p>ffuf -c -w /usr/share/amass/wordlists/subdomains-top1mil-110000.txt -u http://example.com/ -H "Host: FUZZ.example.com" -fs 185</p>
+				   </li>
+				</ul> 
+				</div>				
+			</div>
+			
+			<div class="rsidebar">			
+				<div class="curinf">
+					<p id="tim"></p>
+					<p id="day"></p>				
+					</div>
+					<div class="social">
+					<a  href="https://github.com/alienaki">
+					<img class="btn btn-circle" src="src/github.png" >
+					</a>
+					<a  href="https://twitter.com/AL1ENUM">
+					<img  class="btn btn-circle" src="src/twitter.png" >
+					</a>
+					<a  href="https://www.hackthebox.eu/profile/314167">
+					<img  class="btn btn-circle" src="src/htb.png" >
+					</a>
+					<a  href="https://tryhackme.com/p/aeriko">
+					<img  class="btn btn-circle" src="src/THM.jpg" >
+					</a>
+				</div>
+			</div>
+			
+			<footer class="footer">
+			<br><br>
+				<p>Designed & Built by <a href="https://twitter.com/5TUK45"> @Stukas</a> | Writeups by <a  href="https://twitter.com/AL1ENUM">@Alienum</a> </p>
+			</footer>
+			
+			<script src="js/script.js"></script>
+			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		
+	</BODY>
+</HTML>

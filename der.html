@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<title>Alienum</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body{
+background-color: rgba(0, 0, 0, 0.9);
+width: 95%;
+}
+
+li a, p, h1, h2{
+color:#808080;
+}
+
+.tools h1 ,h2{
+ padding-left: 50px;
+ font-size: 20px;
+}
+
+.tools img{
+ left: 5%;
+ position: relative;
+}
+
+.btn-circle {
+  height: 47px;
+  width: 47px;
+  padding: 6px 0px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.footer{
+  position: relative;
+  bottom:0;
+}
+
+.social{
+ position: relative; 
+ bottom:0;
+ left: 20px;
+}
+
+header{
+text-align:center;
+}
+<!------------------menu-------------------->
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav .icon {
+  display: none;
+}
+.topnav a:hover{
+  background-color: #555;
+  color: white;
+}
+
+.gallery img {
+  position: relative;
+  float:center;
+  background-attachment: fixed;  
+  box-shadow: 0 4px 8px 0 rgba(99, 173, 118, 0.2), 0 6px 20px 0 rgba(99, 173, 118, 0.9);
+  left: 5%;
+}
+
+.desc {
+  padding: 15px;
+  font-size: 20px;
+  color:#808080;
+  text-align: left;
+}
+
+pre {
+	background: rgba(0, 0, 0, 0.9);
+	border: 10px outset rgba(27, 27, 30, 1);
+	padding: 10px;
+	font-size: 16px;
+	color: #aa759f;
+	border-radius: 2px;
+	text-wrap: normal;
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+
+  </style>
+	</HEAD>
+	<BODY>
+		
+		<nav class="navbar navbar-expand-lg">
+			<div class="topnav" id="myTopnav">
+				<a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="../../tools.html">Tools</a>
+				<a class="nav-link" href="../../vulnhub.html">Vulnhub</a>
+				<a class="nav-link" href="../../about.html">About</a>
+				<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+			</div>					
+		</nav>
+		
+		<header>
+		  <h1>DeRPnStiNK, Vulnhub Writeup</h1>
+		  <p>Posted by Alienum</p>
+		  </header> 
+		  
+		 <div class="gallery">
+		  <p>
+		   <div class="desc">Port Scan</div><br>
+			<img src="sources/1.PNG" style="width:500px; height:454px;"> 
+		   </p>
+		   <p>
+			<div class="desc">Directory scan, found /weblog</div><br>
+			<img src="sources/2.PNG" style="width:800px; height:400px;"> 
+		   </p>
+		  <p>
+			<div class="desc">Redirection to derpnstink.local & update /etc/hosts</div><br>
+			<img src="sources/3.PNG" style="width:450px; height:250px;"><br><br><br> 
+			<img src="sources/31.PNG" style="width:400px; height:150px;"><br><br><br> 
+			<img src="sources/32.PNG" style="width:594px; height:400px;"><br><br><br> 
+			<img src="sources/33.PNG" style="width:700px; height:450px;"><br><br> 
+		   </p>
+			<p>
+			<div class="desc">Wordpress login | admin:admin </div><br>
+			<img src="sources/4.PNG" style="width:700px; height:400px;"><br><br><br>  
+			<img src="sources/5.PNG" style="width: 600px; height:350px;"><br><br><br> 
+			<div class="desc">Upload reverse shell</div><br>
+			<img src="sources/61.PNG" style="width:550px; height:454px;"><br> 
+		   </p>
+		 <p>
+			<div class="desc">Shell spawned</div><br>
+			<img src="sources/7.PNG" style="width:800px; height:300px;"><br>
+		  </p>
+		  <p>
+			<div class="desc">Found root password for phpmyadmin</div><br>
+			<img src="sources/8.PNG" style="width:700px; height:300px;"><br><br><br> 
+			<img src="sources/9.PNG" style="width:800px; height:450px;"><br><br>
+			<div class="desc">Found unclestinky password hash, let's crack it</div><br>
+			<img src="sources/10.PNG" style="width:850px; height:450px;"><br><br><br>
+			<img src="sources/11.PNG" style="width:600px; height:310px;"><br><br><br>
+			<div class="desc"> FTP login | stinky:wedgie57</div><br>
+			<img src="sources/12.PNG" style="width:750px; height:550px;"><br><br>
+		   </p>
+		   <p>
+			<div class="desc">Found key.txt and derpissues.txt</div><br>
+			<img src="sources/13.PNG" style="width:700px; height:600px;"><br><br><br>
+			<img src="sources/14.PNG" style="width:750px; height:550px;"><br><br><br>
+			<div class="desc">The key.txt is stinky's private key for SSH</div><br>
+			<img src="sources/15.PNG" style="width:700px; height:500px;"><br><br>
+		   </p>
+			<p>
+			<div class="desc">Found flag.txt</div><br>
+			<img src="sources/16.PNG" style="width:650px; height:250px;"><br><br>
+			<div class="desc">Found pcap file in stinky's Documents, let's analyze it using wireshark</div><br>
+			<img src="sources/17.PNG" style="width:450px; height:350px;"><br><br>
+			<div class="desc">After a long time i found that derp send POST requests with his credentials</div><br>
+			<img src="sources/18.PNG" style="width:1000px; height:650px;"><br><br>
+			<div class="desc">SSH Login</div><br>
+			<img src="sources/19.PNG" style="width:500px; height:430px;"><br><br>
+			<div class="desc">Privesc to Root</div><br>
+			<img src="sources/21.PNG" style="width:750px; height:350px;"><br><br>
+			<div class="desc">Root flag</div><br>
+			<img src="sources/22.PNG"style="width:700px; height:200px;"><br>
+		   </p>
+		</div> 
+		
+		<footer>
+			<div class="social">
+				<a  href="https://github.com/alienaki">
+				<img class="btn btn-circle" src="../../src/github.jpg" >
+				</a>
+				<a  href="https://twitter.com/AL1ENUM">
+				<img  class="btn btn-circle" src="../../src/twitter.jpg" >
+				</a>
+				<a  href="https://www.hackthebox.eu/profile/314167">
+				<img  class="btn btn-circle" src="../../src/htb.jpg" >
+				</a>
+				<a  href="https://tryhackme.com/p/aeriko">
+				<img  class="btn btn-circle" src="../../src/THM.png" >
+				</a>
+				<br/>
+			</div>				
+		<footer>
+		
+		<script>
+			function myFunction() {
+			  var x = document.getElementById("myTopnav");
+			  if (x.className === "topnav") {
+				x.className += " responsive";
+			  } else {
+				x.className = "topnav";
+			  }
+			}
+		</script>
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	</BODY>
+</HTML>
